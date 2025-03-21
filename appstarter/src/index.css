@@ -1,0 +1,125 @@
+:root {
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #121212;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-highlight-free: #00ff7f;
+  --color-highlight-accessible: #00bfff;
+  --color-highlight-open: #ff6b6b;
+  --color-highlight-advanced: #ffcc00;
+  --color-terminal-green: #00ff7f;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-highlight-accessible);
+  text-decoration: inherit;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+#root {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 3.2em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+.highlight-free {
+  color: var(--color-highlight-free);
+}
+
+.highlight-accessible {
+  color: var(--color-highlight-accessible);
+}
+
+.highlight-open {
+  color: var(--color-highlight-open);
+}
+
+.highlight-advanced {
+  color: var(--color-highlight-advanced);
+}
+
+button {
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1e1e1e;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+button:hover {
+  background-color: #2a2a2a;
+  border-color: var(--color-highlight-accessible);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--color-highlight-accessible);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.terminal-text {
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+  line-height: 1.6;
+}
+
+.terminal-prompt::before {
+  content: '> ';
+  color: var(--color-terminal-green);
+}
+
+.terminal-section {
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 1px solid #333;
+}
