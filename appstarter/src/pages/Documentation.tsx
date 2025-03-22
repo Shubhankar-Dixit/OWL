@@ -35,6 +35,15 @@ function Documentation() {
         { id: 'linear-algebra', name: 'Linear Algebra' },
         { id: 'discrete-math', name: 'Discrete Mathematics' }
       ]
+    },
+    ai: {
+      name: 'Artificial Intelligence',
+      topics: [
+        { id: 'math-for-ai', name: 'Math for AI' },
+        { id: 'machine-learning', name: 'Machine Learning' },
+        { id: 'neural-networks', name: 'Neural Networks' },
+        { id: 'nlp', name: 'Natural Language Processing' }
+      ]
     }
   }
 
