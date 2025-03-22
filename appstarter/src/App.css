@@ -10,6 +10,15 @@
   padding: 0;
 }
 
+/* Improved container styles for better responsiveness */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -24,12 +33,17 @@
   font-size: 3.5rem;
   margin-bottom: 1rem;
   letter-spacing: -0.5px;
+  width: 100%;
+  max-width: 900px;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   max-width: 800px;
+  width: 100%;
+  padding: 0 1rem;
+  line-height: 1.4;
 }
 
 .cta-buttons {
@@ -51,7 +65,9 @@
 }
 
 .features-section {
-  padding: 4rem 2rem;
+  padding: 4rem 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .features-grid {
@@ -84,22 +100,26 @@
 }
 
 .courses-section {
-  padding: 4rem 2rem;
+  padding: 4rem 1.5rem;
   background-color: #151515;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer {
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   background-color: #0a0a0a;
   text-align: center;
   margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer-links {
   margin-top: 0.5rem;
 }
 
-/* Documentation Dropdown Styles */
+/* Documentation Dropdown Styles - Updated to match font */
 .docs-dropdown {
   position: relative;
   display: inline-block;
@@ -112,7 +132,7 @@
   cursor: pointer;
   padding: 8px 16px;
   font-size: 1rem;
-  font-family: 'Courier New', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
 .docs-dropdown-content {
@@ -130,7 +150,7 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  font-family: 'Courier New', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
   transition: background-color 0.2s;
 }
 
@@ -169,6 +189,7 @@
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
+  max-width: 100%;
 }
 
 .subject-selector {
@@ -182,7 +203,7 @@
   color: #e0e0e0;
   border: 1px solid #444;
   border-radius: 4px;
-  font-family: 'Courier New', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
 .docs-nav h3 {
@@ -238,6 +259,7 @@
 .doc-content {
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .doc-title {
@@ -360,7 +382,7 @@ section h2 {
   padding: 1rem;
   margin: 0;
   overflow-x: auto;
-  font-family: 'Courier New', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
   line-height: 1.5;
 }
 
@@ -451,7 +473,35 @@ section h2 {
   background-color: #0062a3;
 }
 
-/* Responsive Styles */
+/* Enhanced Responsive Styles with more breakpoints */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .doc-content {
+    padding: 0 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
   .docs-layout {
     flex-direction: column;
@@ -470,6 +520,69 @@ section h2 {
   
   .mobile-menu-toggle {
     display: block;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    padding: 0 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hub-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .hub-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .features-section,
+  .courses-section {
+    padding: 3rem 1rem;
+  }
+  
+  .doc-title {
+    font-size: 2rem;
+  }
+  
+  .doc-authors {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .docs-main {
+    padding: 1.5rem 1rem;
   }
 }
 
@@ -496,30 +609,12 @@ section h2 {
   50% { opacity: 0; }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-  }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Hub Page Styles */
+/* Hub Page Styles - Improved with better padding and alignment */
 .hub-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
 
 .hub-header {
@@ -529,6 +624,8 @@ section h2 {
   padding: 1rem 2rem;
   background-color: #1a1a1a;
   border-bottom: 1px solid #333;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hub-logo {
@@ -576,6 +673,7 @@ section h2 {
 .hub-nav {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .hub-nav-link {
@@ -583,6 +681,7 @@ section h2 {
   text-decoration: none;
   padding: 0.5rem 0;
   position: relative;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
 .hub-nav-link:hover {
@@ -609,6 +708,7 @@ section h2 {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .hub-grid {
@@ -646,7 +746,11 @@ section h2 {
 
 /* About Page Styles */
 .about-main {
-  padding: 3rem 2rem;
+  padding: 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .team-grid {
@@ -681,7 +785,11 @@ section h2 {
 
 /* Courses Page Styles */
 .courses-main {
-  padding: 3rem 2rem;
+  padding: 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .course-categories {
@@ -715,11 +823,17 @@ section h2 {
   align-items: center;
   min-height: 100vh;
   padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .auth-card {
   max-width: 500px;
   width: 100%;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  border: 1px solid #333;
 }
 
 .auth-form {
@@ -738,6 +852,7 @@ section h2 {
   border-radius: 4px;
   color: #e0e0e0;
   font-family: 'Roboto Mono', monospace;
+  box-sizing: border-box;
 }
 
 .auth-input:focus {
@@ -865,47 +980,35 @@ section h2 {
   margin-right: 8px;
 }
 
-/* Make tooltip responsive */
-@media (max-width: 500px) {
+/* Improved tooltip responsiveness */
+@media (max-width: 600px) {
   .terminal-tooltip {
     width: 300px;
     left: -50px;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .terminal-tooltip {
     width: 250px;
     left: -100px;
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hub-header {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-  }
-  
-  .hub-nav {
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .auth-actions {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .auth-back-link {
-    margin-top: 1rem;
+@media (max-width: 380px) {
+  .terminal-tooltip {
+    width: 220px;
+    left: -110px;
   }
 }
 
 /* FAQ Terminal Styles */
 .faq-main {
-  padding: 3rem 2rem;
+  padding: 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .terminal-window {
@@ -915,6 +1018,7 @@ section h2 {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   margin-bottom: 2rem;
   border: 1px solid #333;
+  width: 100%;
 }
 
 .terminal-header {
@@ -950,7 +1054,7 @@ section h2 {
 
 .terminal-line {
   padding: 5px 0;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
   white-space: pre-wrap;
   word-break: break-word;
 }
@@ -967,7 +1071,7 @@ section h2 {
 .terminal-prompt-symbol {
   color: var(--color-terminal-green);
   margin-right: 8px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
 .terminal-input {
@@ -975,7 +1079,7 @@ section h2 {
   background: transparent;
   border: none;
   color: #e0e0e0;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
   font-size: 1rem;
   padding: 5px 0;
   caret-color: var(--color-terminal-green);
@@ -1002,7 +1106,7 @@ section h2 {
   border-radius: 4px;
   padding: 0.75rem 1rem;
   color: var(--color-highlight-accessible);
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -1046,7 +1150,7 @@ section h2 {
 
 /* Terminal text styling */
 .terminal-text {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
 .terminal-prompt {

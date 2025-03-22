@@ -11,17 +11,17 @@ function Hub() {
           </div>
           <div className="hub-nav">
             <div className="docs-dropdown">
-              <button className="docs-dropdown-btn">Documentation</button>
+              <button className="docs-dropdown-btn terminal-text">Documentation</button>
               <div className="docs-dropdown-content">
-                <Link to="/docs/physics" className="docs-dropdown-item">Physics</Link>
-                <Link to="/docs/competitive-programming" className="docs-dropdown-item">Competitive Programming</Link>
-                <Link to="/docs/mathematics" className="docs-dropdown-item">Mathematics</Link>
+                <Link to="/docs/physics" className="docs-dropdown-item terminal-text">Physics</Link>
+                <Link to="/docs/competitive-programming" className="docs-dropdown-item terminal-text">Competitive Programming</Link>
+                <Link to="/docs/mathematics" className="docs-dropdown-item terminal-text">Mathematics</Link>
               </div>
             </div>
           </div>
           <div className="hub-auth">
-            <Link to="/login" className="hub-login-btn">Login</Link>
-            <Link to="/signup" className="hub-signup-btn">Sign Up</Link>
+            <Link to="/login" className="hub-login-btn terminal-text">Login</Link>
+            <Link to="/signup" className="hub-signup-btn terminal-text">Sign Up</Link>
           </div>
         </header>
         
