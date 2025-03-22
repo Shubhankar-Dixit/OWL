@@ -1,3 +1,36 @@
+/* Add these styles at the top of your file */
+body, html {
+  background-color: transparent !important;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+/* Override any potential background colors */
+.app-container, 
+.hero-section, 
+.hero-title, 
+.terminal-prompt, 
+.owl-name {
+  background-color: transparent !important;
+}
+
+/* Make sure the matrix canvas is positioned correctly */
+.matrix-rain {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 #root {
   width: 100%;
   margin: 0 auto;
