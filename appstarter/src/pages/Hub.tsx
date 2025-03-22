@@ -9,6 +9,16 @@ function Hub() {
           <div className="hub-logo terminal-text">
             <Link to="/" className="hub-home-link">OWL</Link>
           </div>
+          <div className="hub-nav">
+            <div className="docs-dropdown">
+              <button className="docs-dropdown-btn">Documentation</button>
+              <div className="docs-dropdown-content">
+                <Link to="/docs/physics" className="docs-dropdown-item">Physics</Link>
+                <Link to="/docs/competitive-programming" className="docs-dropdown-item">Competitive Programming</Link>
+                <Link to="/docs/mathematics" className="docs-dropdown-item">Mathematics</Link>
+              </div>
+            </div>
+          </div>
           <div className="hub-auth">
             <Link to="/login" className="hub-login-btn">Login</Link>
             <Link to="/signup" className="hub-signup-btn">Sign Up</Link>

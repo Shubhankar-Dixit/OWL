@@ -1,0 +1,35 @@
+I'll help you understand how to create documentation similar to the USACO guide with a clean, smooth UI that's easy to navigate. The example you've shared uses MDX (Markdown with JSX) to create an interactive and well-structured documentation site.
+
+Here's how you can build something similar:
+
+## Setting Up a Documentation Site Like USACO Guide
+
+### 1. Choose a Framework
+
+The USACO guide appears to be built with:
+- React as the frontend framework
+- MDX for content (Markdown with React components)
+- A static site generator (likely Next.js, Gatsby, or Docusaurus)
+
+Docusaurus is especially well-suited for documentation sites like this, as it's purpose-built for technical documentation.
+
+### 2. Core Components to Implement
+
+Based on the example, you'll want to create:
+
+- **Interactive Problem Components** (`<FocusProblem>`, `<Problems>`)
+- **Disclosure Components** (`<Spoiler>`)
+- **Language Section Tabs** (`<LanguageSection>`, `<CPPSection>`, etc.)
+- **Interactive Quizzes** (`<Quiz>`)
+
+### 3. Implementation Steps
+
+Now, let's create some custom React components that will help you achieve the interactive elements seen in the USACO guide, I AM USING VITE SO IF POSSIBLE IMPLEMENT IT THERE SOMEHOW:
+
+Now, let's set up an example MDX document that demonstrates how to use these components:
+
+Let's also create a custom theme and some styles to make the documentation look polished:
+
+
+
+Finally, let's put together a README with step-by-step instructions on how to set up this documentation site:

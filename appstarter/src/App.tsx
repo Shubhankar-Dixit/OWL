@@ -4,6 +4,7 @@ import Hub from './pages/Hub'
 import About from './pages/About'
 import Courses from './pages/Courses'
 import FAQ from './pages/FAQ'
+import Documentation from './pages/Documentation'
 import { AuthProvider } from './contexts/AuthContext'
 import './App.css'
 
@@ -17,6 +18,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/docs" element={<Documentation />} />
+          <Route path="/docs/:subject" element={<Documentation />} />
+          <Route path="/docs/:subject/:topic" element={<Documentation />} />
         </Routes>
       </Router>
     </AuthProvider>
