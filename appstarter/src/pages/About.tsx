@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import '../App.css'
 import { useState, useEffect, useRef, ReactNode } from 'react'
+import { useTheme } from '../contexts/ThemeContext'
+import ThemeToggle from '../components/ThemeToggle'
 
 // Define types for component props
 interface TerminalTextProps {
@@ -147,12 +149,11 @@ interface TerminalSectionProps {
 const TerminalSection = ({ title, children, command, isVisible, onCommandComplete }: TerminalSectionProps) => {
   const [showContent, setShowContent] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
   // Only show content after command is completed
   const handleCommandComplete = () => {
     setShowContent(true);
-    // We no longer immediately call onCommandComplete here
-    // Instead, the SequentialTerminalText will trigger it when done
   };
   
   // If no command is provided, show content immediately when visible
@@ -200,6 +201,7 @@ const TerminalSection = ({ title, children, command, isVisible, onCommandComplet
 function About() {
   const [showContent, setShowContent] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
+  const { theme } = useTheme();
   
   useEffect(() => {
     // Simulate terminal startup
@@ -217,6 +219,24 @@ function About() {
     console.log("Active section changed to:", activeSection);
   }, [activeSection]);
 
+  // Add light mode styles conditionally
+  const terminalStyles = {
+    backgroundColor: theme === 'light' ? 'var(--terminal-bg)' : 'var(--terminal-bg)',
+    boxShadow: theme === 'light' ? '0 10px 20px var(--shadow-color)' : '0 10px 20px var(--shadow-color)',
+    border: `1px solid var(--border-color)`,
+  };
+  
+  const terminalHeaderStyles = {
+    backgroundColor: theme === 'light' ? 'var(--terminal-header-bg)' : 'var(--terminal-header-bg)',
+    borderBottom: `1px solid var(--border-color)`,
+  };
+  
+  const terminalContentStyles = {
+    backgroundColor: theme === 'light' ? 'var(--terminal-bg)' : 'var(--terminal-bg)',
+    color: theme === 'light' ? 'var(--text-color)' : 'var(--terminal-text)',
+    fontFamily: "'Fira Code', 'Source Code Pro', 'IBM Plex Mono', monospace",
+  };
+
   return (
     <div className="app-container">
       <div className="hub-container">
@@ -229,13 +249,16 @@ function About() {
             <Link to="/courses" className="hub-nav-link">Courses</Link>
             <Link to="/about" className="hub-nav-link active">About</Link>
           </div>
+          <div className="hub-auth" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <ThemeToggle />
+          </div>
         </header>
         
         <main className="about-main container">
           {showContent && (
             <>
-              <div className="terminal-window">
-                <div className="terminal-header">
+              <div className="terminal-window" style={terminalStyles}>
+                <div className="terminal-header" style={terminalHeaderStyles}>
                   <div className="terminal-buttons">
                     <span className="terminal-button close"></span>
                     <span className="terminal-button minimize"></span>
@@ -243,7 +266,7 @@ function About() {
                   </div>
                   <div className="terminal-title">about.owl — bash</div>
                 </div>
-                <div className="terminal-content">
+                <div className="terminal-content" style={terminalContentStyles}>
                   {/* Initial Command */}
                   <CommandTyping 
                     command="cat about.owl"
@@ -352,18 +375,20 @@ function About() {
       <style>
         {`
         .terminal-window {
-          background-color: #1e1e1e;
+          background-color: var(--terminal-bg);
           border-radius: 6px;
-          box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+          box-shadow: 0 10px 20px var(--shadow-color);
           margin-bottom: 2rem;
           overflow: hidden;
+          border: 1px solid var(--border-color);
         }
         
         .terminal-header {
-          background-color: #333;
+          background-color: var(--terminal-header-bg);
           padding: 8px 15px;
           display: flex;
           align-items: center;
+          border-bottom: 1px solid var(--border-color);
         }
         
         .terminal-buttons {
@@ -378,33 +403,37 @@ function About() {
           border-radius: 50%;
         }
         
-        .terminal-button.close { background-color: #ff5f56; }
-        .terminal-button.minimize { background-color: #ffbd2e; }
-        .terminal-button.maximize { background-color: #27c93f; }
+        .terminal-button.close { background-color: var(--terminal-dot-red); }
+        .terminal-button.minimize { background-color: var(--terminal-dot-yellow); }
+        .terminal-button.maximize { background-color: var(--terminal-dot-green); }
         
         .terminal-title {
-          color: #ddd;
+          color: var(--text-color);
           font-size: 0.9rem;
+          font-family: 'Fira Code', 'Source Code Pro', 'IBM Plex Mono', monospace;
         }
         
         .terminal-content {
           padding: 20px;
-          color: #f8f8f8;
+          color: var(--terminal-text);
+          font-family: 'Fira Code', 'Source Code Pro', 'IBM Plex Mono', monospace;
         }
         
         .terminal-line {
           margin-bottom: 15px;
-          font-family: monospace;
+          font-family: 'Fira Code', 'Source Code Pro', 'IBM Plex Mono', monospace;
           line-height: 1.4;
+          color: var(--text-color);
         }
         
         .terminal-prompt-symbol {
-          color: #5f5;
+          color: var(--terminal-green);
           margin-right: 8px;
+          font-weight: bold;
         }
         
         .terminal-command {
-          color: #5ff;
+          color: var(--highlight-open);
         }
         
         .cursor {
@@ -412,7 +441,7 @@ function About() {
           width: 0.6em;
           height: 1em;
           vertical-align: text-bottom;
-          background-color: #fff;
+          background-color: var(--text-color);
           color: transparent;
           animation: blink 1s step-end infinite;
           margin-left: 2px;
@@ -423,7 +452,7 @@ function About() {
           width: 0.6em;
           height: 1em;
           vertical-align: text-bottom;
-          background-color: #fff;
+          background-color: var(--text-color);
           animation: blink 1s step-end infinite;
         }
         
@@ -494,14 +523,57 @@ function About() {
         }
         
         .team-member-name {
-          color: #5ff;
+          color: var(--highlight-accessible);
           margin-bottom: 5px;
+          font-weight: 600;
         }
         
         .team-member-role {
-          color: #f5f;
+          color: var(--terminal-green);
           font-size: 0.9rem;
           margin-bottom: 10px;
+          font-weight: 500;
+        }
+
+        /* Light mode adjustments */
+        [data-theme="light"] .terminal-window {
+          background-color: var(--terminal-bg);
+          box-shadow: 0 10px 20px var(--shadow-color);
+          border: 1px solid var(--border-color);
+        }
+        
+        [data-theme="light"] .terminal-header {
+          background-color: var(--terminal-header-bg);
+          border-bottom: 1px solid var(--border-color);
+        }
+        
+        [data-theme="light"] .terminal-content {
+          color: var(--text-color);
+        }
+        
+        [data-theme="light"] .terminal-line,
+        [data-theme="light"] .terminal-text,
+        [data-theme="light"] .team-member-role {
+          color: var(--text-color);
+        }
+        
+        [data-theme="light"] .terminal-prompt-symbol {
+          color: var(--terminal-green);
+        }
+        
+        [data-theme="light"] .team-member {
+          background-color: var(--card-bg);
+          border: 1px solid var(--border-color);
+          box-shadow: 0 5px 15px var(--shadow-color);
+        }
+        
+        [data-theme="light"] .team-member-name {
+          color: var(--highlight-accessible);
+        }
+        
+        [data-theme="light"] .terminal-section {
+          background-color: rgba(212, 160, 23, 0.1);
+          border: 1px solid var(--border-color);
         }
         `}
       </style>
